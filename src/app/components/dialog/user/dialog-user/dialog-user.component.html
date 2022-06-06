@@ -1,0 +1,75 @@
+<h1 mat-dialog-title>Formulaire</h1>
+<div mat-dialog-content>
+    <p>{{ dialogTitle }}</p>
+    
+    <caption style="color:red">(*) Champs Obligatoires</caption>
+
+    <form [formGroup]="userFormGroup" (ngSubmit)="save()">
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" formControlName="lastNameControl">
+            <mat-error *ngIf="getErrorMessage('lastNameControl','required')">Ce champ est obligatoire</mat-error>
+            <mat-error *ngIf="getErrorMessage('lastNameControl','minlength')">2 caractères minimum</mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Prénom</mat-label>
+            <input matInput type="text" formControlName="firstNameControl">
+            <mat-error *ngIf="getErrorMessage('firstNameControl','required')">Ce champ est obligatoire</mat-error>
+            <mat-error *ngIf="getErrorMessage('firstNameControl','minlength')">2 caractères minimum</mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Téléphone</mat-label>
+            <input matInput type="tel" formControlName="phoneNumberControl">
+            <mat-error *ngIf="getErrorMessage('phoneNumberControl','minlength')">10 caractères minimum</mat-error>
+            <mat-error *ngIf="getErrorMessage('phoneNumberControl','maxlength')">20 caractères maximum</mat-error>
+            <mat-error *ngIf="getErrorMessage('phoneNumberControl','pattern')">Le numéro n'est pas bien formaté</mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="emailControl">
+            <mat-error *ngIf="getErrorMessage('emailControl','required')">Ce champ est obligatoire</mat-error>
+            <mat-error *ngIf="getErrorMessage('emailControl','email')">L'email n'est pas valide</mat-error>
+            <mat-error *ngIf="getErrorMessage('emailControl','pattern')">l'email n'est pas bien formaté</mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" formControlName="passwordControl">
+            <mat-error *ngIf="getErrorMessage('passwordControl','required')">Ce champ est obligatoire</mat-error>
+            <mat-error *ngIf="getErrorMessage('passwordControl','minlength')">6 caractères minimum</mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="roleControl">
+                <mat-option *ngFor="let role of roles" name="role.name" [value]="role.value">
+                    {{ role.name }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="getErrorMessage('roleControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+
+        <br>
+
+        <div mat-dialog-actions>
+            <button mat-button type="button" class="noClick" (click)="onNoClick()">Fermer</button>
+            <button mat-flat-button cdkFocusInitial color="primary" class="save" type="submit">Enregister</button>
+        </div>
+    </form>
+</div>
+
+
+

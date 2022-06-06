@@ -1,0 +1,19 @@
+.content , .buttons , mat-card
+{
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card
+{
+    padding:5rem;
+    margin: 0 auto;
+    margin-top: 5rem;
+    justify-content: space-evenly;
+}
+
+.buttons
+{
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}

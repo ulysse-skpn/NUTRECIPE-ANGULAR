@@ -1,0 +1,95 @@
+<h1 mat-dialog-title>Formulaire</h1>
+<div mat-dialog-content>
+    <p>{{ dialogTitle }}</p>
+    
+    <caption style="color:red">(*) Champs Obligatoires</caption>
+
+    <form [formGroup]="ingredientFormGroup" (ngSubmit)="save()">
+        <mat-form-field>
+            <mat-label>Appellation</mat-label>
+            <input matInput type="text" name="product_name" formControlName="productNameControl">
+            <mat-error *ngIf="getErrorMessage('productNameControl','required')">Ce champ est obligatoire</mat-error>
+            <mat-error *ngIf="getErrorMessage('productNameControl','minlength')">2 caractères minimum</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Composition</mat-label>
+            <textarea matInput name="ingredient_text" rows="3" formControlName="ingredientTextControl"></textarea>
+            <mat-hint>Veuillez séparer chaque élément par un <strong>point-virgule</strong></mat-hint>
+            <mat-error *ngIf="getErrorMessage('ingredientTextControl','required')">Ce champ est obligatoire</mat-error>
+            <mat-error *ngIf="getErrorMessage('ingredientTextControl','minlength')">2 caractères minimum</mat-error>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field>
+            <mat-label>Glucides pour 100g</mat-label>
+            <input matInput type="number" name="carbohydrates" formControlName="carbohydratesControl">
+            <mat-error *ngIf="getErrorMessage('carbohydratesControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Protéines pour 100g</mat-label>
+            <input matInput type="number" name="proteins" formControlName="proteinsControl">
+            <mat-error *ngIf="getErrorMessage('proteinsControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Lipides pour 100g</mat-label>
+            <input matInput type="number" name="fats" formControlName="fatsControl">
+            <mat-error *ngIf="getErrorMessage('fatsControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Sel pour 100g</mat-label>
+            <input matInput type="number" name="salt" formControlName="saltControl">
+            <mat-error *ngIf="getErrorMessage('saltControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Calories pour 100g</mat-label>
+            <input matInput type="number" name="calories" formControlName="caloriesControl">
+            <mat-error *ngIf="getErrorMessage('caloriesControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Groupe Nova</mat-label>
+            <mat-select formControlName="novaGroupControl">
+                <mat-option *ngFor="let group of nova_group" name="group.name" [value]="group.value">
+                    {{ group.value }} : {{ group.text }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="getErrorMessage('novaGroupControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Taille de la portion</mat-label>
+            <input matInput type="text" name="serving_size" formControlName="servingSizeControl">
+            <mat-error *ngIf="getErrorMessage('servingSizeControl','required')">Ce champ est obligatoire</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Categories</mat-label>
+            <textarea matInput name="categories" rows="3" formControlName="categoriesControl"></textarea>
+            <mat-hint>Veuillez séparer chaque élément par un <strong>point-virgule</strong></mat-hint>
+        </mat-form-field>
+        <br>
+        <br>
+        <mat-form-field>
+            <mat-label>Image url</mat-label>
+            <input matInput type="url" formControlName="imageControlUrl">
+        </mat-form-field>
+        <br>
+        OU
+        <br>
+        <div>
+            <mat-label>Uploader une image</mat-label>
+            <input type="file" formControlName="imageControlFile">
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button class="noClick" type="button" (click)="onNoClick()">Fermer</button>
+            <button mat-flat-button cdkFocusInitial class="save" color="primary" type="submit">Enregister</button>
+        </div>
+    </form>
+</div>
+

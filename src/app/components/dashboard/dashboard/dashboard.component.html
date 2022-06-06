@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/dashboard">NUTRECIPE</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <span class="nav-link" aria-current="page">{{ nameUser }}</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" (click)="logout()">Déconnexion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="left-sidebar bg-dark">
+    <h5 class="text-center text-light mt-3">Menu</h5>
+    <hr>
+    <ul>
+        <li class="mb-1" routerLink="/ingredients">
+            <button class="btn btn-toggle align-items-center rounded text-light" value="ingredient">
+                <img src="./../../assets/images/carrot.svg" height=25 alt="onglet ingrédient">
+                Ingrédients
+            </button>
+        </li>
+
+        <hr>
+
+        <li class="mb-1" routerLink="/recipes">
+            <button class="btn btn-toggle align-items-center rounded text-light" value="recipe">
+                <img src="./../../assets/images/plate.svg" height=25 alt="onglet recette">
+                Recettes
+            </button>
+        </li>
+
+        <hr>
+
+        <li class="mb-1" routerLink="/users">
+            <button class="btn btn-toggle align-items-center rounded text-light" value="user">
+                <img src="./../../assets/images/user.svg" height=25 alt="onglet Utilisateur">
+                Utilisateurs
+            </button>
+        </li>
+
+    </ul>
+</div>
+
+<div class="content">
+    <p>TABLEAU DE BORD</p>
+    <hr>
+    <br>
+    <div class="h3">Nombre d'ingredients : {{  ingredients_size }}</div>
+    <br>
+    <div class="h3">Nombre de recettes : {{  recipes_size }}</div>
+    <br>
+    <div class="h3">Nombre d'utilisateurs : {{  users_size }}</div>
+</div>
+

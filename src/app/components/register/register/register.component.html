@@ -1,0 +1,72 @@
+<section class="content">
+
+    <mat-card>
+        <button mat-flat-button (click)="returnToLogin()" style="margin-bottom: 2rem;">Retour</button>
+
+        <mat-card-title>NUTRECIPE</mat-card-title>
+
+        <mat-card-subtitle>Inscription</mat-card-subtitle>
+
+        <mat-card-content>
+            <form [formGroup]="registerFormGroup" (ngSubmit)="onFormSubmit()">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Nom</mat-label>
+                        <input matInput placeholder='Nom' type="text" id="last_name" name="last_name" formControlName="lastNameControl" min="1">
+                        <mat-error *ngIf="getErrorMessage('lastNameControl','required')">Ce champ est obligatoire</mat-error>
+                        <mat-error *ngIf="getErrorMessage('lastNameControl','minlength')">2 caractères minimum</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>Prenom</mat-label>
+                        <input matInput placeholder='Prenom' type="text" id="first_name" name="first_name" formControlName="firstNameControl" min="1">
+                        <mat-error *ngIf="getErrorMessage('firstNameControl','required')">Ce champ est obligatoire</mat-error>
+                        <mat-error *ngIf="getErrorMessage('firstNameControl','minlength')">2 caractères minimum</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>Numéro de téléphone</mat-label>
+                        <input matInput placeholder='N° téléphone' type="tel" id="phone_number" name="phone_number" formControlName="phoneNumberControl" min="10" max="20">
+                        <mat-error *ngIf="getErrorMessage('phoneNumberControl','minlength')">10 caractères minimum</mat-error>
+                        <mat-error *ngIf="getErrorMessage('phoneNumberControl','maxlength')">20 caractères maximum</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder='email' type="email" id="email" name="email" formControlName="emailControl" required>
+                        <mat-error *ngIf="getErrorMessage('emailControl','required')">Ce champ est obligatoire</mat-error>
+                        <mat-error *ngIf="getErrorMessage('emailControl','email')">L'email n'est pas valide</mat-error>
+                        <mat-error *ngIf="getErrorMessage('emailControl','pattern')">L'email n'est pas bien formaté</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field hintLabel="Min 6 caractères">
+                        <mat-label>Mot de passe</mat-label>
+                        <input matInput #input placeholder='mot de passe' min="6" [type]="hide ? 'password' : 'text'" id="password" name="password" formControlName="passwordControl" required>
+                        <mat-error *ngIf="getErrorMessage('passwordControl','required')">Ce champ est obligatoire</mat-error>
+                        <mat-error *ngIf="getErrorMessage('passwordControl','minlength')">6 caractères minimum</mat-error>
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                        </button>
+                        <mat-hint align="end">{{ input.value?.length || 0}}/6</mat-hint>
+                    </mat-form-field>
+                </div>
+                <br>
+                <div class="buttons">
+                    <div><button mat-raised-button color="primary" type="submit">Valider</button></div>
+                </div>
+            </form>
+        </mat-card-content>
+
+    </mat-card>
+    
+</section>
+
+

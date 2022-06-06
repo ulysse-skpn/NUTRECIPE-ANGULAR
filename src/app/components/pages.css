@@ -1,0 +1,104 @@
+
+.pageContent{
+    padding:7rem 4rem 0 16rem;
+    text-align: justify;
+}
+
+
+.btnAction , .addButton{
+    cursor: pointer;
+    height:2rem;
+}
+
+.addButton
+{
+  float: right;
+}
+
+.alignSpinner
+{
+  display: flex;
+  justify-content: center;
+}
+
+.redFilter{
+    filter: invert(52%) sepia(67%) saturate(6273%) hue-rotate(331deg) brightness(86%) contrast(102%);margin:0.4rem;
+}
+
+.blueFilter{
+    filter: invert(82%) sepia(43%) saturate(6180%) hue-rotate(144deg) brightness(100%) contrast(90%);margin:0.4rem;
+}
+
+.warningFilter{
+    filter: invert(70%) sepia(86%) saturate(832%) hue-rotate(352deg) brightness(103%) contrast(104%);margin:0.4rem;
+}
+
+/* =========================================== */
+table {
+    width: 100%;
+  }
+  
+  tr.detail-row {
+    height: 0;
+  }
+  
+  tr.element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+  
+  tr.element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .element-row td {
+    border-bottom-width: 0;
+  }
+  
+  .element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  .element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+  
+  .element-description img
+  {
+    margin-right: 1.5rem;
+  }
+
+  .element-description 
+  {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+  }
+  
+  .element-description-attribution {
+    opacity: 0.5;
+  }
+  
+.mat-footer-cell
+{ 
+  flex-direction: row;
+  justify-content: end;
+  align-items: flex-end 
+}
+
+.mat-cell 
+{
+  padding: 0.2rem 0.7rem;
+}
+  

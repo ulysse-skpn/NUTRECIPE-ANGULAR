@@ -1,0 +1,62 @@
+.nav 
+{
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+.sidebar a 
+{
+    text-decoration: none;
+    color: #f7f7f7;
+}
+.sidebar a:hover 
+{
+    color: #0d6efd;
+    transition: 400ms;
+}
+.dashboard_wrapper 
+{
+    padding-top: 3.5rem;
+    height: 100vh;
+    display: flex;
+}
+.right-body 
+{
+    padding: 3rem 3rem 1rem 25%;
+    width: 100%;
+}
+.left-sidebar 
+{
+    position: fixed;
+    height: 100%;
+    padding-right: 1.5rem;
+}
+.blueFilter 
+{
+    filter: invert(32%) sepia(58%) saturate(6331%) hue-rotate(194deg)
+    brightness(97%) contrast(98%);
+}
+.redFilter 
+{
+    filter: invert(51%) sepia(64%) saturate(5591%) hue-rotate(337deg)
+    brightness(97%) contrast(75%);
+}
+.imgAction 
+{
+    cursor: pointer;
+    height: 2rem;
+}
+btn-toggle-nav > li 
+{
+    margin: 1rem 0 !important;
+}
+btn-toggle-nav > li > a 
+{
+    color: #f7f7f7;
+}
+
+.content
+{
+    font-size: 3rem;
+    padding:7rem 4rem 0 16rem;
+}
