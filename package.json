@@ -8,6 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage --browsers ChromeHeadless",
+    "test_browser": "ng test --browsers Chrome",
     "sonar": "node sonar-project.js"
   },
   "private": true,
