@@ -28,7 +28,7 @@ export class UsersPageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator
   @ViewChild(MatSort) sort!: MatSort
   
-  columnsToDisplay = ['id', 'last_name' , 'first_name' , 'phone_number' , 'modif' , 'suppr' ]
+  columnsToDisplay = ['id', 'last_name' , 'first_name' , 'role' , 'phone_number' , 'modif' , 'suppr' ]
   ELEMENT_DATA:IUserOut[] = []
   dataSource:MatTableDataSource<IUserOut> = new MatTableDataSource() 
   expandedElement!:any | null
